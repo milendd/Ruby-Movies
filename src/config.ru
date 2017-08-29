@@ -1,14 +1,12 @@
 require 'sinatra/base'
 
-class MyApp < Sinatra::Base
+require_relative  'routes/common_route'
 
+class BaseController < Sinatra::Base
+  register Sinatra::CommonRoute
   # get "/hello/:name" do
   #   "Hello #{params[:name]}!"
   # end
-
-  get '/' do
-    erb :index
-  end
 end
 
-run MyApp.run!
+run BaseController.run!
