@@ -2,10 +2,12 @@
   <h1>Всички потребители</h1>
   <table class="users-data">
   	<tr>
+  		<th>Id</th>
   		<th>Потребител</th>
   	</tr>
   	<% @users.each do |user| %>
       <tr>
+      	<td><%= user.id %></td>
       	<td>
       		<a href="/users/<%= user.id %>"><%= user.username %></a>
       	</td>

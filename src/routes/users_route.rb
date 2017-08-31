@@ -17,6 +17,4 @@ module Sinatra
       end
     end
   end
-  
-  register UsersRoute
 end

@@ -5,6 +5,10 @@ header, footer {
 	padding: 5px;
 }
 
+#content {
+	margin: 15px;
+}
+
 #search-button {
 	padding: 0;
 	margin-left: 5px;
@@ -13,6 +17,10 @@ header, footer {
 .search-button-image {
 	width: 22px;
 	height: 22px;
+}
+
+.clear-fix {
+	clear: both;
 }
 
 .users-data,
@@ -26,4 +34,27 @@ header, footer {
 	padding: 10px;
 	width: 40%;
 	border: 1px solid black;
+}
+
+.all-movies {
+	width: 500px;
+}
+
+.movie-container {
+	display: inline-block;
+	margin: 15px 10px;
+	padding: 10px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.movie-picture {
+	height: 250px;
+	width: 170px;
+}
+
+.movie-details {
+	float: right;
+	width: 250px;
+    margin-left: 10px;
 }

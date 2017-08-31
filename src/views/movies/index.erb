@@ -1,0 +1,27 @@
+<% if @movies.any? %>
+  <h1>Movies:</h1>
+  <div class="all-movies">
+    <% @movies.each do |movie| %>
+      <div class="movie-container">
+        <img src="<%= "/movie-pics/img_#{movie.id}.jpg" %>" class="movie-picture"/>
+        <div class="movie-details">
+          <strong>Title:</strong>
+          <div><%= movie.title %></div>
+          
+          <strong>Year:</strong>
+          <div><%= movie.year %></div>
+          
+          <strong>Description:</strong>
+          <div><%= movie.description %></div>
+          
+          <strong>Genre:</strong>
+          <div><%= movie.genre %></div>
+        </div>
+        <div class="clear-fix"></div>
+      </div>
+    <% end %>
+  </div>
+  
+<% else %>
+  <p>No movies available.</p>
+<% end %>
