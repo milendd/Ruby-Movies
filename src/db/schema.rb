@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831080907) do
+ActiveRecord::Schema.define(version: 20170831163058) do
+
+  create_table "celebrities", force: :cascade do |t|
+    t.string "name"
+    t.string "nacionality"
+    t.datetime "birthday"
+  end
+
+  create_table "celebrities_movies", force: :cascade do |t|
+    t.integer "movies_id"
+    t.integer "celebrities_id"
+    t.integer "celebrity_types_id"
+    t.index ["celebrities_id"], name: "index_celebrities_movies_on_celebrities_id"
+    t.index ["celebrity_types_id"], name: "index_celebrities_movies_on_celebrity_types_id"
+    t.index ["movies_id"], name: "index_celebrities_movies_on_movies_id"
+  end
+
+  create_table "celebrity_types", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.integer "year"
+    t.integer "duration"
+    t.text "description"
+    t.string "genre"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "movies_id"
+    t.integer "users_id"
+    t.integer "rate"
+    t.index ["movies_id"], name: "index_ratings_on_movies_id"
+    t.index ["users_id"], name: "index_ratings_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

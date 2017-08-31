@@ -12,7 +12,7 @@ module Sinatra
       end
       
       app.get '/users/:id' do
-        @user = User.find(params[:id])
+        @user = User.where(id: params[:id]).first
         erb :'./users/view'
       end
     end
