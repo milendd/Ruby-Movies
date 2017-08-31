@@ -14,3 +14,16 @@ header, footer {
 	width: 22px;
 	height: 22px;
 }
+
+.users-data,
+.user-view {
+	width: 20%;
+	margin: 10px;
+}
+
+.users-data th, 
+.users-data td {
+	padding: 10px;
+	width: 40%;
+	border: 1px solid black;
+}

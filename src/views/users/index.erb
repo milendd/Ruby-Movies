@@ -1,0 +1,18 @@
+<% if @users.any? %>
+  <h1>Всички потребители</h1>
+  <table class="users-data">
+  	<tr>
+  		<th>Потребител</th>
+  	</tr>
+  	<% @users.each do |user| %>
+      <tr>
+      	<td>
+      		<a href="/users/<%= user.id %>"><%= user.username %></a>
+      	</td>
+      </tr>
+    <% end %>
+  </table>
+  
+<% else %>
+  <p>Няма налични потребители.</p>
+<% end %>
