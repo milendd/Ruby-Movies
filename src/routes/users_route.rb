@@ -7,6 +7,7 @@ module Sinatra
     def self.registered(app)
       
       app.get '/users' do
+        # todo: page size and page count
         @users = User.all
         erb :'./users/index'
       end

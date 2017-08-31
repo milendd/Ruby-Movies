@@ -1,0 +1,31 @@
+<% if @celebrities.any? %>
+  <h1>All celebrities:</h1>
+  <div class="all-celebrities">
+    <% @celebrities.each do |celebrity| %>
+      <div class="celebrity-container">
+        <!-- <img src="<%= "/celebrity-pics/img_#{celebrity.id}.jpg" %>" class="celebrity-picture"/> -->
+        <div class="celebrity-details">
+        	
+          <strong>Id:</strong>
+          <div><%= celebrity.id %></div>
+        	
+          <strong>Name:</strong>
+          <div><%= celebrity.name %></div>
+          
+          <strong>Nacionality:</strong>
+          <div><%= celebrity.nacionality %></div>
+          
+          <strong>Birthday:</strong>
+          <div><%= celebrity.birthday %></div>
+          
+          <strong>Gender:</strong>
+          <div><%= celebrity.gender %></div>
+        </div>
+        <div class="clear-fix"></div>
+      </div>
+    <% end %>
+  </div>
+  
+<% else %>
+  <p>No celebrities available.</p>
+<% end %>
