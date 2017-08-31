@@ -1,8 +1,8 @@
 <% if @user %>
-  <h1>Данни за потребител</h1>
+  <h1>User data:</h1>
   <table class="user-view">
   	<tr>
-  		<td>Потребителско име</td>
+  		<td>Username</td>
   		<td><%= @user.username %></td>
   	</tr>
   	<tr>
@@ -10,11 +10,11 @@
   		<td><%= @user.email %></td>
   	</tr>
   	<tr>
-  		<td>Админ</td>
-  		<td><%= @user.is_admin ? 'Да' : 'Не' %></td>
+  		<td>Is admin</td>
+  		<td><%= @user.is_admin ? 'Yes' : 'No' %></td>
   	</tr>
   </table>
   
 <% else %>
-  <p>Няма такъв потребител.</p>
+  <p>No such user found.</p>
 <% end %>

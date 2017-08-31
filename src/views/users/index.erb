@@ -1,9 +1,9 @@
 <% if @users.any? %>
-  <h1>Всички потребители</h1>
+  <h1>All users:</h1>
   <table class="users-data">
   	<tr>
   		<th>Id</th>
-  		<th>Потребител</th>
+  		<th>User</th>
   	</tr>
   	<% @users.each do |user| %>
       <tr>
@@ -16,5 +16,5 @@
   </table>
   
 <% else %>
-  <p>Няма налични потребители.</p>
+  <p>No users available.</p>
 <% end %>

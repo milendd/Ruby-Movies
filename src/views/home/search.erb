@@ -1,12 +1,12 @@
-<div>Резултати за "<%= @query %>"</div>
+<div>Results for "<%= @query %>"</div>
 
 <% if @movies.any? %>
-  <h1>Всички филми</h1>
+  <h1>All movies:</h1>
   <ul>
     <% @movies.each do |movie| %>
       <li><%= movie.name %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>Няма намерени филми.</p>
+  <p>No data found.</p>
 <% end %>
