@@ -6,7 +6,7 @@ module Sinatra
   module UsersRoute
     def self.registered(app)
       
-      app.get '/users' do
+      app.get Regexp.new('\/users\/?') do
         # todo: page size and page count
         @users = User.all
         erb :'./users/index'

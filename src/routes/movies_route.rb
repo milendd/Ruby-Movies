@@ -12,7 +12,7 @@ module Sinatra
     end
     
     def self.registered(app)
-      app.get '/movies' do
+      app.get Regexp.new('\/movies\/?') do
         # todo: page size and page count
         @movies = Movie.all
         erb :'./movies/index'

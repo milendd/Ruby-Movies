@@ -6,7 +6,7 @@ module Sinatra
   module CelebritiesRoute
     def self.registered(app)
       
-      app.get '/celebrities' do
+      app.get Regexp.new('\/celebrities\/?') do
         # todo: page size and page count
         @celebrities = Celebrity.all
         erb :'./celebrities/index'
