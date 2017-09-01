@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20170831194438) do
   end
 
   create_table "celebrities_movies", force: :cascade do |t|
-    t.integer "movies_id"
-    t.integer "celebrities_id"
-    t.integer "celebrity_types_id"
-    t.index ["celebrities_id"], name: "index_celebrities_movies_on_celebrities_id"
-    t.index ["celebrity_types_id"], name: "index_celebrities_movies_on_celebrity_types_id"
-    t.index ["movies_id"], name: "index_celebrities_movies_on_movies_id"
+    t.integer "movie_id"
+    t.integer "celebrity_id"
+    t.integer "celebrity_type_id"
+    t.index ["celebrity_id"], name: "index_celebrities_movies_on_celebrity_id"
+    t.index ["celebrity_type_id"], name: "index_celebrities_movies_on_celebrity_type_id"
+    t.index ["movie_id"], name: "index_celebrities_movies_on_movie_id"
   end
 
   create_table "celebrity_types", force: :cascade do |t|
@@ -41,18 +41,17 @@ ActiveRecord::Schema.define(version: 20170831194438) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "movies_id"
-    t.integer "users_id"
+    t.integer "movie_id"
+    t.integer "user_id"
     t.integer "rate"
-    t.index ["movies_id"], name: "index_ratings_on_movies_id"
-    t.index ["users_id"], name: "index_ratings_on_users_id"
+    t.index ["movie_id"], name: "index_ratings_on_movie_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "encrypted_password"
-    t.string "salt"
     t.boolean "is_admin"
   end
 

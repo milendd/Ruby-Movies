@@ -26,5 +26,5 @@
 
 <p>Actor ids:</p>
 <% @all_data.each do |data| %>
-  <div><%= data.celebrities_id %></div>
+  <div><%= data.celebrity_id %>: <%= data.celebrity.name %></div>
 <% end %>

@@ -20,11 +20,9 @@ module Sinatra
       
       app.get '/movies/:id' do
         MoviesRoute.init
-        @all_data = CelebritiesMovie.where(movies_id: params[:id])
-        if @all_data.any?
-          # @all_data.each { |data| @test = data.celebrity }
-          @movie = Movie.where(id: params[:id]).first
-        end
+        @movie = Movie.where(id: params[:id]).first
+        @all_data = CelebritiesMovie.where(movie_id: params[:id])
+        
         erb :'./movies/view'
       end
     end
