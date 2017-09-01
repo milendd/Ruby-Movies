@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 require_relative '../models/movie'
-require_relative '../models/celebrities_movies'
+require_relative '../models/celebrities_movie'
 require_relative '../models/celebrity_type'
 
 module Sinatra
@@ -20,8 +20,9 @@ module Sinatra
       
       app.get '/movies/:id' do
         MoviesRoute.init
-        @all_data = CelebritiesMovies.where(movies_id: params[:id])
+        @all_data = CelebritiesMovie.where(movies_id: params[:id])
         if @all_data.any?
+          # @all_data.each { |data| @test = data.celebrity }
           @movie = Movie.where(id: params[:id]).first
         end
         erb :'./movies/view'
