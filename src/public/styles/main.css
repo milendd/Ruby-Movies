@@ -1,4 +1,4 @@
-header, footer {
+.header, .footer {
 	margin: 10px;
 	border: 1px solid red;
 	border-radius: 5px;
@@ -12,6 +12,14 @@ header, footer {
 #search-button {
 	padding: 0;
 	margin-left: 5px;
+}
+
+.alert-custom {
+	display: inline-block;
+}
+
+.menu-bar {
+	margin-bottom: 5px;
 }
 
 .search-button-image {

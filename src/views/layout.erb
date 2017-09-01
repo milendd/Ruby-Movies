@@ -7,27 +7,42 @@
 		<link rel="stylesheet" href="/styles/main.css">
 	</head>
 	<body>
-		<header>
-			<span class="home-link">
-				<a href="/">Home</a>
-				<a href="/users">Users</a>
-				<a href="/movies">Movies</a>
-				<a href="/celebrities">Celebrities</a>
-			</span>
-			<form method="get" action="/search" id="search-form">
-			    <input type="text" name="query" id="search-query" class="col-md-3" placeholder="Search movies or celebrities">
-			    <button id="search-button" type="submit">
-			    	<img class="search-button-image" src="/pictures/search.jpg" />
-			    </button>
-			  </div>
-			</form>
-		</header>
+		<div class="row header">
+			<header>
+				<div class="menu-bar">
+					<span class="home-link">
+						<a href="/">Home</a>
+						<a href="/users">Users</a>
+						<a href="/movies">Movies</a>
+						<a href="/celebrities">Celebrities</a>
+					</span>
+					
+					<% if session[:user_id] %>
+						<strong>UserID: <%= session[:user_id] %></strong>
+						<a href="/logout" class="btn btn-primary">Logout</a>
+					<% else %>
+						<a href="/login" class="btn btn-primary">Login</a>
+					<% end %>
+				</div>
+				
+				<form method="get" action="/search" id="search-form">
+					<input type="text" name="query" id="search-query" class="col-md-3" placeholder="Search movies or celebrities">
+					<button id="search-button" type="submit">
+						<img class="search-button-image" src="/pictures/search.jpg" />
+					</button>
+				  </div>
+				</form>
+			</header>
+		</div>
 		
-		<div id="content">
+		<div id="content" class="row">
 			<%= yield %>
 		</div>
 		
-		<footer>FMI - Movies and actors. &copy; 2017</footer>
+		<div class="row footer">
+			<footer>FMI - Movies and actors. &copy; 2017</footer>
+		</div>
+		
 		
     	<!-- jQuery -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
