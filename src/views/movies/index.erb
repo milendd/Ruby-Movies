@@ -4,11 +4,11 @@
     <% @movies.each do |movie| %>
       <div class="movie-container">
         <img src="<%= "/movie-pics/img_#{movie.id}.jpg" %>" class="movie-picture"/>
-        <div class="movie-details">
-          <div>Id: <%= movie.id %></div>
-        	
+        <div class="movie-details">        	
           <strong>Title:</strong>
-          <div><%= movie.title %></div>
+          <div>
+          	<a href="<%= "/movies/#{movie.id}"%>"><%= movie.title %></a>
+          </div>
           
           <strong>Year:</strong>
           <div><%= movie.year %></div>

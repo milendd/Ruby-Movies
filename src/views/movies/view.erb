@@ -16,6 +16,11 @@
       
       <strong>Genre:</strong>
       <div><%= @movie.genre %></div>
+      
+      <% if @director %>
+        <strong>Director:</strong>
+        <div><%= @director.celebrity.name %></div>
+      <% end %>
     </div>
     <div class="clear-fix"></div>
   </div>
@@ -24,7 +29,20 @@
   <p>No such movie found.</p>
 <% end %>
 
-<p>Actor ids:</p>
-<% @all_data.each do |data| %>
-  <div><%= data.celebrity_id %>: <%= data.celebrity.name %></div>
-<% end %>
+<h3>Actors:</h3>
+<table>
+  <% @actors.each do |actor| %>
+    <tr>
+      <td><%= actor.celebrity.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3>Writers:</h3>
+<table>
+  <% @writers.each do |writer| %>
+    <tr>
+      <td><%= writer.celebrity.name %></td>
+    </tr>
+  <% end %>
+</table>
