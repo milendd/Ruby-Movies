@@ -1,0 +1,23 @@
+<% if @celebrity %>
+  <h1>Celebrity data:</h1>
+  <div class="celebrity-container">
+    <img src="<%= "/celebrity-pics/img_#{@celebrity.id}.jpg" %>" class="celebrity-picture"/>
+    <div class="celebrity-details">      
+      <strong>Name:</strong>
+      <div><%= @celebrity.name %></div>
+      
+      <strong>Nacionality</strong>
+      <div><%= @celebrity.nacionality %></div>
+      
+      <strong>Birthday:</strong>
+      <div><%= @celebrity.birthday.strftime('%d.%m.%Y') %></div>
+      
+      <strong>Gender:</strong>
+      <div><%= @celebrity.gender %></div>
+    </div>
+    <div class="clear-fix"></div>
+  </div>
+  
+<% else %>
+  <p>No such celebrity found.</p>
+<% end %>

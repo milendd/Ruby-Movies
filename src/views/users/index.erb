@@ -4,6 +4,8 @@
   	<tr>
   		<th>Id</th>
   		<th>User</th>
+  		<th>Emain</th>
+  		<th>Is admin</th>
   	</tr>
   	<% @users.each do |user| %>
       <tr>
@@ -11,6 +13,8 @@
       	<td>
       		<a href="/users/<%= user.id %>"><%= user.username %></a>
       	</td>
+      	<td><%= user.email %></td>
+      	<td><%= user.is_admin ? "Yes" : "No" %></td>
       </tr>
     <% end %>
   </table>

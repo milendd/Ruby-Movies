@@ -10,13 +10,15 @@
           <div><%= celebrity.id %></div>
         	
           <strong>Name:</strong>
-          <div><%= celebrity.name %></div>
+          <div>
+          	<a href="<%= "/celebrities/#{celebrity.id}"%>"><%= celebrity.name %></a>
+          </div>
           
           <strong>Nacionality:</strong>
           <div><%= celebrity.nacionality %></div>
           
           <strong>Birthday:</strong>
-          <div><%= celebrity.birthday %></div>
+          <div><%= celebrity.birthday.strftime('%d.%m.%Y') %></div>
           
           <strong>Gender:</strong>
           <div><%= celebrity.gender %></div>

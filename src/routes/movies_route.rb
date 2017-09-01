@@ -4,9 +4,6 @@ require_relative '../models/movie'
 require_relative '../models/celebrities_movie'
 require_relative '../models/celebrity_type'
 
-#todo: remove
-require_relative '../models/celebrity'
-
 module Sinatra
   module MoviesRoute    
     def self.registered(app)

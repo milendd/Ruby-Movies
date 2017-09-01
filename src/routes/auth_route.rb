@@ -6,14 +6,42 @@ module Sinatra
   module AuthRoute
     def self.registered(app)
       app.enable :sessions
+      
+      # add condition, like :auth => :user
+      app.register do
+        def auth (type)
+          condition do
+            redirect "/login/not_auth" unless send("is_#{type}?")
+          end
+        end
+      end
+      
+      app.helpers do
+        def is_user?
+          @user != nil
+        end
+        
+        def is_admin?
+          @user && @user.is_admin
+        end
+      end
+      
+      app.before do
+        @user = User.where(id: session[:user_id]).first
+      end
+      
+      app.get '/login/not_auth' do
+        @error = 'You are not authorized to see that page'
+        erb :'./home/login'
+      end
 
       app.get Regexp.new('\/login\/?') do
-        redirect '/' if session[:user_id]
+        redirect '/' if is_user?
         erb :'./home/login'
       end
 
       app.post Regexp.new('\/login\/?') do
-        redirect '/' if session[:user_id]
+        redirect '/' if is_user?
 
         @db_user = User.authenticate(params[:username], params[:password])
         if @db_user.nil?
@@ -26,7 +54,7 @@ module Sinatra
       end
 
       app.get Regexp.new('\/register\/?') do
-        redirect '/' if session[:user_id]
+        redirect '/' if is_user?
         erb :'./home/register'
       end
 

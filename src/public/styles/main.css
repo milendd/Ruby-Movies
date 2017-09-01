@@ -33,14 +33,13 @@
 
 .users-data,
 .user-view {
-	width: 20%;
+	width: 30%;
 	margin: 10px;
 }
 
 .users-data th, 
 .users-data td {
 	padding: 10px;
-	width: 40%;
 	border: 1px solid black;
 }
 
