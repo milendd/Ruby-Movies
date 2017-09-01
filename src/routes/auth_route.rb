@@ -25,6 +25,27 @@ module Sinatra
         end
       end
 
+      app.get Regexp.new('\/register\/?') do
+        redirect '/' if session[:user_id]
+        erb :'./home/register'
+      end
+
+      app.post Regexp.new('\/register\/?') do
+        if params[:password] != params[:confirm_password]
+          @error = 'Both passwords should be equal'
+          return erb :'./home/register'
+        end
+
+        @created_user = User.register(params)
+        if @created_user.nil?
+          @error = 'Error while saving user'
+          erb :'./home/register'
+        else
+          session[:user_id] = @created_user.id
+          redirect '/'
+        end
+      end
+
       app.get Regexp.new('\/logout\/?') do
         session.clear
         redirect '/'
