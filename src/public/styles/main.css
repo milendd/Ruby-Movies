@@ -16,6 +16,7 @@
 
 .alert-custom {
 	display: inline-block;
+	margin-left: 10px;
 }
 
 .menu-bar {
@@ -38,7 +39,9 @@
 }
 
 .users-data th, 
-.users-data td {
+.users-data td,
+.movies-data th, 
+.movies-data td {
 	padding: 10px;
 	border: 1px solid black;
 }

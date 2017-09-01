@@ -21,3 +21,19 @@
 <% else %>
   <p>No such celebrity found.</p>
 <% end %>
+
+<h3>Movies:</h3>
+<table class="movies-data">
+  <tr>
+  	<th>Movie</th>
+  	<th>Role</th>
+  </tr>
+  <% @all_data.each do |data| %>
+    <tr>
+      <td>
+      	<a href="<%= "/movies/#{data.movie_id}" %>"><%= data.movie.title %></a>
+      </td>
+      <td><%= data.celebrity_type.name %></td>
+    </tr>
+  <% end %>
+</table>

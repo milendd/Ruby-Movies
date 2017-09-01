@@ -19,7 +19,9 @@
       
       <% if @director %>
         <strong>Director:</strong>
-        <div><%= @director.celebrity.name %></div>
+        <div>
+          <a href="<%= "/celebrities/#{@director.celebrity_id}" %>"><%= @director.celebrity.name %></a>
+        </div>
       <% end %>
     </div>
     <div class="clear-fix"></div>
@@ -33,7 +35,9 @@
 <table>
   <% @actors.each do |actor| %>
     <tr>
-      <td><%= actor.celebrity.name %></td>
+      <td>
+      	<a href="<%= "/celebrities/#{actor.celebrity_id}" %>"><%= actor.celebrity.name %></a>
+      </td>
     </tr>
   <% end %>
 </table>
@@ -42,7 +46,9 @@
 <table>
   <% @writers.each do |writer| %>
     <tr>
-      <td><%= writer.celebrity.name %></td>
+      <td>
+      	<a href="<%= "/celebrities/#{writer.celebrity_id}" %>"><%= writer.celebrity.name %></a>
+      </td>
     </tr>
   <% end %>
 </table>
