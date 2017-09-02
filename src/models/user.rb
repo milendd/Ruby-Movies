@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     )
   end
   
-  private 
+  private_class_method
   def self.encrypt(username, password)
     # it is more secure this way
     # in case two users have the same password

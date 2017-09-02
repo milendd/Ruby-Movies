@@ -3,7 +3,9 @@ class CreateMovies < ActiveRecord::Migration[5.1]
     create_table :movies do |t|
       t.string :title
       t.integer :year
-      t.integer :duration # in minutes
+      
+      # duration is in minutes
+      t.integer :duration 
       t.text :description
       t.string :genre
     end

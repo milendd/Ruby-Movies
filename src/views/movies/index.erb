@@ -1,7 +1,7 @@
 <% if @movies.any? %>
   <h2 class="movie-heading">All movies:</h2>
   
-  <% if is_admin? %>
+  <% if admin? %>
   	<a href="/movies/add" class="btn btn-success add-btn">Add new</a>
   </span>
   <% end %>
@@ -12,7 +12,7 @@
         <img src="<%= "/movie-pics/img_#{movie.id}.jpg" %>" class="movie-picture"/>
         <div class="movie-details">
         	
-          <% if is_admin? %>
+          <% if admin? %>
             <a href="<%= "/movies/delete/#{movie.id}" %>" class="btn btn-danger delete-btn">Delete</a>
           <% end %>
           

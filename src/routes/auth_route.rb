@@ -9,7 +9,7 @@ module Sinatra
       
       # add condition, like :auth => :user
       app.register do
-        def auth (type)
+        def auth(type)
           condition do
             redirect "/login/not_auth" unless send("is_#{type}?")
           end
@@ -17,11 +17,11 @@ module Sinatra
       end
       
       app.helpers do
-        def is_user?
+        def user?
           @user != nil
         end
         
-        def is_admin?
+        def admin?
           @user && @user.is_admin
         end
       end
@@ -36,12 +36,12 @@ module Sinatra
       end
 
       app.get Regexp.new('\/login\/?') do
-        redirect '/' if is_user?
+        redirect '/' if user?
         erb :'./home/login'
       end
 
       app.post Regexp.new('\/login\/?') do
-        redirect '/' if is_user?
+        redirect '/' if user?
 
         @db_user = User.authenticate(params[:username], params[:password])
         if @db_user.nil?
@@ -54,7 +54,7 @@ module Sinatra
       end
 
       app.get Regexp.new('\/register\/?') do
-        redirect '/' if is_user?
+        redirect '/' if user?
         erb :'./home/register'
       end
 

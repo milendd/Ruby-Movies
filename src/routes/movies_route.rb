@@ -19,18 +19,19 @@ module Sinatra
         erb :'./movies/index'
       end
       
-      app.get '/movies/add', :auth => :admin do
+      app.get '/movies/add', auth: 'admin' do
         @actors = Celebrity.all
         @movie = Celebrity.new
         erb :'./movies/edit'
       end
       
-      app.post '/movies/edit', :auth => :admin do
-        if params[:id] || params[:id].empty?
-          @movie = Movie.new
-        else
-          @movie = Movie.find(params[:id])
-        end
+      app.post '/movies/edit', auth: 'admin' do
+        @movie = 
+          if params[:id] || params[:id].empty?
+            Movie.new
+          else
+            Movie.find(params[:id])
+          end
         
         @movie.title = params[:title]
         @movie.year = params[:year].to_i
@@ -48,7 +49,7 @@ module Sinatra
         end
       end
       
-      app.get '/movies/delete/:id', :auth => :admin do
+      app.get '/movies/delete/:id', auth: 'admin' do
         all_celebrities = CelebritiesMovie.where(movie_id: params[:id])
         
         all_celebrities.each do |celebrity|

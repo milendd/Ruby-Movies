@@ -16,7 +16,7 @@ class App < Sinatra::Base
   register Sinatra::AuthRoute
   register Sinatra::CommonRoute
   
-  #register specific routes
+  # register specific routes
   register Sinatra::UsersRoute
   register Sinatra::MoviesRoute
   register Sinatra::CelebritiesRoute
