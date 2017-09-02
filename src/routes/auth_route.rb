@@ -11,7 +11,7 @@ module Sinatra
       app.register do
         def auth(type)
           condition do
-            redirect "/login/not_auth" unless send("is_#{type}?")
+            redirect "/login/not_auth" unless send("#{type}?")
           end
         end
       end

@@ -3,11 +3,8 @@
   <div class="all-celebrities">
     <% @celebrities.each do |celebrity| %>
       <div class="celebrity-container">
-        <!-- <img src="<%= "/celebrity-pics/img_#{celebrity.id}.jpg" %>" class="celebrity-picture"/> -->
+        <img src="<%= "/celebrity-pics/img_#{celebrity.id}.jpg" %>" class="celebrity-picture"/>
         <div class="celebrity-details">
-        	
-          <strong>Id:</strong>
-          <div><%= celebrity.id %></div>
         	
           <strong>Name:</strong>
           <div>
