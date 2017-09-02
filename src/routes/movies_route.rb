@@ -48,6 +48,17 @@ module Sinatra
         end
       end
       
+      app.get '/movies/delete/:id', :auth => :admin do
+        all_celebrities = CelebritiesMovie.where(movie_id: params[:id])
+        
+        all_celebrities.each do |celebrity|
+          celebrity.destroy
+        end
+        Movie.destroy(params[:id])
+        
+        redirect '/movies'
+      end
+      
       app.get '/movies/:id' do
         all_data = CelebritiesMovie.where(movie_id: params[:id])
         

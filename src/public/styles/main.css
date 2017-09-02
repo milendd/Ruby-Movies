@@ -59,6 +59,10 @@
 	margin-bottom: 15px;
 }
 
+.delete-btn {
+	float: right;
+}
+
 .movie-container {
 	display: inline-block;
 	margin: 15px 10px;
