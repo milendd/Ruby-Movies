@@ -19,6 +19,35 @@ module Sinatra
         erb :'./movies/index'
       end
       
+      app.get '/movies/add', :auth => :admin do
+        @actors = Celebrity.all
+        @movie = Celebrity.new
+        erb :'./movies/edit'
+      end
+      
+      app.post '/movies/edit', :auth => :admin do
+        if params[:id] || params[:id].empty?
+          @movie = Movie.new
+        else
+          @movie = Movie.find(params[:id])
+        end
+        
+        @movie.title = params[:title]
+        @movie.year = params[:year].to_i
+        @movie.duration = params[:duration].to_i
+        @movie.description = params[:description]
+        @movie.genre = params[:genre]
+        
+        # todo: add actors
+        if @movie.year > 0 && @movie.duration > 0 && @movie.title && @movie.title != ''
+          @movie.save
+          redirect '/movies'
+        else
+          @error = 'Title, duration and year are required'
+          erb :'./movies/edit'
+        end
+      end
+      
       app.get '/movies/:id' do
         all_data = CelebritiesMovie.where(movie_id: params[:id])
         

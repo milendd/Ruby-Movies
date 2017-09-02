@@ -1,0 +1,56 @@
+<div class="col-md-6">
+	<form action="/movies/edit" class="form-horizontal" method="post" role="form">
+		<input id="id" name="id" type="hidden" value="<%= params[:id] %>"/>
+		
+		<div class="row form-group">
+			<div>
+				<label class="col-md-3 col-sm-4 control-label" for="title">Title</label>
+			</div>
+			<div class="col-md-4 col-sm-5">
+				<input class="form-control" id="title" name="title" type="text" value="<%= params[:title] %>"/>
+			</div>
+		</div>
+		
+		<div class="row form-group">
+			<div>
+				<label class="col-md-3 col-sm-4 control-label" for="year">Year</label>
+			</div>
+			<div class="col-md-4 col-sm-5">
+				<input class="form-control" id="year" name="year" type="text" value="<%= params[:year] %>"/>
+			</div>
+		</div>
+		
+		<div class="row form-group">
+			<div>
+				<label class="col-md-3 col-sm-4 control-label" for="duration">Duration</label>
+			</div>
+			<div class="col-md-4 col-sm-5">
+				<input class="form-control" id="duration" name="duration" type="text" value="<%= params[:duration] %>" />
+			</div>
+		</div>
+		
+		<div class="row form-group">
+			<div>
+				<label class="col-md-3 col-sm-4 control-label" for="genre">Genre</label>
+			</div>
+			<div class="col-md-4 col-sm-5">
+				<input class="form-control" id="genre" name="genre" type="text" value="<%= params[:genre] %>" />
+			</div>
+		</div>
+		
+		<div class="row form-group">
+			<div>
+				<label class="col-md-3 col-sm-4 control-label" for="description">Description</label>
+			</div>
+			<div class="col-md-6 col-sm-7">
+				<textarea class="form-control" id="description" name="description" rows="5"><%= params[:description] %></textarea>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-md-offset-3 col-sm-offset-4 col-md-3">
+				<button type="submit" class="btn btn-success">Create</button>
+			</div>
+		</div>
+	</form>
+</div>

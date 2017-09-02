@@ -50,6 +50,15 @@
 	width: 500px;
 }
 
+.movie-heading {
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+.add-btn {
+	margin-bottom: 15px;
+}
+
 .movie-container {
 	display: inline-block;
 	margin: 15px 10px;

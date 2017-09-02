@@ -1,5 +1,11 @@
 <% if @movies.any? %>
-  <h1>All movies:</h1>
+  <h2 class="movie-heading">All movies:</h2>
+  
+  <% if is_admin? %>
+  	<a href="/movies/add" class="btn btn-success add-btn">Add new</a>
+  </span>
+  <% end %>
+  
   <div class="all-movies">
     <% @movies.each do |movie| %>
       <div class="movie-container">
@@ -12,6 +18,9 @@
           
           <strong>Year:</strong>
           <div><%= movie.year %></div>
+          
+          <strong>Duration:</strong>
+          <div><%= movie.duration %></div>
           
           <strong>Description:</strong>
           <div><%= movie.description %></div>
