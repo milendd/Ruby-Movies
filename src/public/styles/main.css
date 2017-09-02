@@ -59,7 +59,8 @@
 	margin-bottom: 15px;
 }
 
-.delete-btn {
+.delete-btn,
+.edit-btn {
 	float: right;
 }
 

@@ -13,6 +13,16 @@ module Sinatra
         @author_type = CelebrityType.where(name: 'Author').first.id
       end
       
+      app.helpers do
+        def fill_movie_data(movie)
+          movie.title = params[:title]
+          movie.year = params[:year].to_i if params[:year]
+          movie.duration = params[:duration].to_i if params[:duration]
+          movie.description = params[:description]
+          movie.genre = params[:genre]
+        end
+      end
+      
       app.get Regexp.new('\/movies\/?') do
         # todo: page size and page count
         @movies = Movie.all
@@ -21,32 +31,35 @@ module Sinatra
       
       app.get '/movies/add', auth: 'admin' do
         @actors = Celebrity.all
-        @movie = Celebrity.new
+        @movie = Movie.new
+        fill_movie_data @movie
         erb :'./movies/edit'
       end
       
       app.post '/movies/edit', auth: 'admin' do
-        @movie = 
-          if params[:id] || params[:id].empty?
+        @movie =
+          if params[:id].nil? || params[:id].empty?
             Movie.new
           else
-            Movie.find(params[:id])
+            Movie.where(id: params[:id]).first
           end
         
-        @movie.title = params[:title]
-        @movie.year = params[:year].to_i
-        @movie.duration = params[:duration].to_i
-        @movie.description = params[:description]
-        @movie.genre = params[:genre]
+        fill_movie_data @movie
         
         # todo: add actors
         if @movie.year > 0 && @movie.duration > 0 && @movie.title && @movie.title != ''
           @movie.save
           redirect '/movies'
         else
-          @error = 'Title, duration and year are required'
+          @error = 'Title, Year and Duration are required'
           erb :'./movies/edit'
         end
+      end
+      
+      app.get '/movies/edit/:id', auth: 'admin' do
+        @actors = Celebrity.all
+        @movie = Movie.where(id: params[:id]).first
+        erb :'./movies/edit'
       end
       
       app.get '/movies/delete/:id', auth: 'admin' do

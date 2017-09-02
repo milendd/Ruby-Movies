@@ -14,6 +14,7 @@
         	
           <% if admin? %>
             <a href="<%= "/movies/delete/#{movie.id}" %>" class="btn btn-danger delete-btn">Delete</a>
+            <a href="<%= "/movies/edit/#{movie.id}" %>" class="btn btn-secondary edit-btn">Edit</a>
           <% end %>
           
           <strong>Title:</strong>
